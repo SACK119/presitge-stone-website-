@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -21,7 +21,10 @@
   --nav-h:   68px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
 
 body {
   font-family: var(--sans);
@@ -32,11 +35,16 @@ body {
   line-height: 1.6;
 }
 
+/* prevent any stray text nodes above nav */
+body > #prog { display:block; }
+body > canvas { display:none; }
+
 /* ─── SCROLL PROGRESS ─── */
 #prog {
   position: fixed; top:0; left:0; height:2px;
   background: var(--terra); z-index:9999;
   width:0%; transition: width .1s linear;
+  margin:0; padding:0; border:none;
 }
 
 /* ─── NAV ─── */
@@ -998,7 +1006,7 @@ footer {
       </div>
       <div class="cinfo">
         <span class="cinfo-ico">✉️</span>
-        <div><h4>Email</h4><p><a href="mailto:info@prestigestone.com">info@prestigestone.com</a></p></div>
+        <div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection#7811161e1738080a1d0b0c111f1d0b0c17161d561b1715"><span class="__cf_email__" data-cfemail="4d24232b220d3d3f283e39242a283e39222328632e2220">[email&#160;protected]</span></a></p></div>
       </div>
       <div class="cinfo">
         <span class="cinfo-ico">🕐</span>
@@ -1060,7 +1068,7 @@ footer {
       <ul>
         <li><a href="#contact">Get a Quote</a></li>
         <li><a href="tel:5551234567">(555) 123-4567</a></li>
-        <li><a href="mailto:info@prestigestone.com">info@prestigestone.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#026b6c646d4272706771766b656771766d6c672c616d6f"><span class="__cf_email__" data-cfemail="6f060109002f1f1d0a1c1b06080a1c1b00010a410c0002">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -1069,7 +1077,7 @@ footer {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── SCROLL PROGRESS
 const prog = document.getElementById('prog');
 window.addEventListener('scroll', () => {
@@ -1115,15 +1123,4 @@ const io = new IntersectionObserver(entries => {
 revealEls.forEach(el => io.observe(el));
 
 // ─── SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(!target) return;
-    e.preventDefault();
-    closeMenu();
-    window.scrollTo({ top: target.offsetTop - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')), behavior:'smooth' });
-  });
-});
-</script>
-</body>
-</html>
+document.querySelector
